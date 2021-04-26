@@ -3,21 +3,20 @@
 #include "View/setuptab.h"
 #include "utils.h"
 
-StartUp::StartUp() :
-    QObject(nullptr),
-    m_setupTab(*new SetupTab(nullptr)),
-    m_mainView(*new MainView(nullptr, m_setupTab))
-{
-
-}
+StartUp::StartUp()
+  : QObject(nullptr)
+  , m_setupTab(*new SetupTab(nullptr))
+  , m_mainView(*new MainView(nullptr, m_setupTab))
+{}
 
 StartUp::~StartUp()
 {
-    Utils::DestructorMsg(this);
-    delete &m_mainView;
+  Utils::DestructorMsg(this);
+  delete &m_mainView;
 }
 
-void StartUp::show() const
+void
+StartUp::show() const
 {
-    m_mainView.show();
+  m_mainView.show();
 }

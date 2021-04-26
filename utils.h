@@ -6,9 +6,9 @@
 class Utils
 {
 public:
-    Utils();
-    static void DestructorMsg(const QString value);
-    static void DestructorMsg(const QObject *object);
+  Utils();
+  static void DestructorMsg(const QString value);
+  static void DestructorMsg(const QObject* object);
 };
 
 #endif // UTILS_H

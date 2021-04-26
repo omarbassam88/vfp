@@ -9,14 +9,14 @@ class SetupTab;
 
 class SetupTab : public QWidget
 {
-    Q_OBJECT
+  Q_OBJECT
 
 public:
-    explicit SetupTab(QWidget *parent = nullptr);
-    ~SetupTab();
+  explicit SetupTab(QWidget* parent = nullptr);
+  ~SetupTab();
 
 private:
-    Ui::SetupTab *ui;
+  Ui::SetupTab* ui;
 };
 
 #endif // SETUPTAB_H
