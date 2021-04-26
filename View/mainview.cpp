@@ -2,13 +2,14 @@
 #include "./ui_mainview.h"
 #include "setuptab.h"
 
-MainView::MainView(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainView)
+MainView::MainView(QWidget *parent, SetupTab& setup):
+    QMainWindow(parent),
+    m_setupTab(setup),
+    ui(new Ui::MainView)
 {
     ui->setupUi(this);
-    auto setupTab = new SetupTab(this);
-    ui->loSetupTab->addWidget(setupTab);
+    m_setupTab.setParent(this);
+    ui->loSetupTab->addWidget(&m_setupTab);
 }
 
 MainView::~MainView()

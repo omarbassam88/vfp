@@ -1,5 +1,6 @@
 #include "setuptab.h"
 #include "ui_setuptab.h"
+#include "utils.h"
 
 SetupTab::SetupTab(QWidget *parent) :
     QWidget(parent),
@@ -10,5 +11,6 @@ SetupTab::SetupTab(QWidget *parent) :
 
 SetupTab::~SetupTab()
 {
+    Utils::DestructorMsg(this);
     delete ui;
 }

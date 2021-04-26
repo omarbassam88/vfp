@@ -29,6 +29,10 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
 set(PROJECT_SOURCES
         main.cpp
+        startup.h
+        startup.cpp
+        utils.h
+        utils.cpp
         vfpResources.qrc
         View/mainview.cpp
         View/mainview.h
