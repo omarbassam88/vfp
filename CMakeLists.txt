@@ -40,6 +40,8 @@ set(PROJECT_SOURCES
         View/setuptab.cpp
         View/setuptab.h
         View/setuptab.ui
+        Model/settings.h
+        Model/settings.cpp
         )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

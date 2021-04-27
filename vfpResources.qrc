@@ -10,4 +10,7 @@
         <file>Images/StopRed16.png</file>
         <file>Images/Syncor48.png</file>
     </qresource>
+    <qresource prefix="/json">
+        <file>settings.json</file>
+    </qresource>
 </RCC>
