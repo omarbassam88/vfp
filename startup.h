@@ -5,6 +5,8 @@
 
 class MainView;
 class SetupTab;
+class Instrument;
+class SetupViewManager;
 
 class StartUp final : public QObject
 {
@@ -18,6 +20,8 @@ public slots:
 private:
   SetupTab& m_setupTab;
   MainView& m_mainView;
+  Instrument* m_instrument;
+  SetupViewManager* m_setupVm;
 
 signals:
 };

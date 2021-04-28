@@ -24,8 +24,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #    endif()
 #endif()
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets Network REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Network REQUIRED)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -42,6 +43,14 @@ set(PROJECT_SOURCES
         View/setuptab.ui
         Model/settings.h
         Model/settings.cpp
+        Model/provider.h
+        Model/provider.cpp
+        Model/instsocket.h
+        Model/instsocket.cpp
+        Model/instrument.h
+        Model/instrument.cpp
+        ViewMgr/setupviewmanager.h
+        ViewMgr/setupviewmanager.cpp
         )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -61,3 +70,4 @@ else()
 endif()
 
 target_link_libraries(vfp PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(vfp PRIVATE Qt${QT_VERSION_MAJOR}::Network)

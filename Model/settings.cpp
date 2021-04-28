@@ -42,6 +42,7 @@ Settings::ParseJsonData()
 
 }
 
+
 QString
 Settings::ReadJsonFile()
 {
