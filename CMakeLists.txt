@@ -44,6 +44,9 @@ set(PROJECT_SOURCES
         View/controltab.h
         View/controltab.cpp
         View/controltab.ui
+        View/aboutbox.h
+        View/aboutbox.cpp
+        View/aboutbox.ui
         Model/settings.h
         Model/settings.cpp
         Model/provider.h

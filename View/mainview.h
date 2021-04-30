@@ -20,6 +20,9 @@ public:
   MainView(QWidget* parent, SetupTab& setupTab, ControlTab &controlTab);
   ~MainView();
 
+private slots:
+  void on_action_About_triggered();
+
 private:
   Ui::MainView* ui;
 };

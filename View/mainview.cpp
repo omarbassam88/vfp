@@ -2,6 +2,7 @@
 #include "./ui_mainview.h"
 #include "setuptab.h"
 #include "controltab.h"
+#include "View/aboutbox.h"
 
 MainView::MainView(QWidget* parent, SetupTab& setupTab, ControlTab& controlTab)
   : QMainWindow(parent)
@@ -17,4 +18,11 @@ MainView::MainView(QWidget* parent, SetupTab& setupTab, ControlTab& controlTab)
 MainView::~MainView()
 {
   delete ui;
+}
+
+void MainView::on_action_About_triggered()
+{
+    AboutBox aboutBox;
+    aboutBox.show();
+    aboutBox.exec();
 }
