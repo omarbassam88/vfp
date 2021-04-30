@@ -35,6 +35,7 @@ public slots:
     void onPortChanged(quint16 port);
     void onSendRequest(const QString& dataToSend);
     void onReceiveRequest();
+    void onPulseWidthChanged(double value);
 
 private:
     InstSocket& m_socket;

@@ -2,6 +2,8 @@
 #include "instsocket.h"
 #include "utils.h"
 #include <QDebug>
+#include "provider.h"
+#include "settings.h"
 
 Instrument::Instrument(QObject *parent, InstSocket& socket)
     : QObject(parent)
@@ -9,6 +11,7 @@ Instrument::Instrument(QObject *parent, InstSocket& socket)
     , m_lastCommandSent("")
 {
 
+    WireConnections();
 }
 
 Instrument::~Instrument()
@@ -23,13 +26,16 @@ void Instrument::Connect()
     if (!connected) {
         emit NotifyErrorDetected(tr("Cannot Connect to Instrument"));
     }
+
 }
 
 void Instrument::Disconnect()
 {
     if (m_socket.IsOpen()) {
         m_socket.Disconnect();
+
     }
+
 }
 
 bool Instrument::isConnected() const
@@ -73,6 +79,7 @@ void Instrument::onConnected()
 void Instrument::onDisconnected()
 {
     emit NotifyDisconnected();
+    qDebug() << "Disconnected";
 }
 
 void Instrument::onHostNameChanged(const QString &hostName)
@@ -102,5 +109,15 @@ void Instrument::onReceiveRequest()
     else{
         emit NotiftDataReceived(input_buffer);
     }
+
+}
+
+void Instrument::onPulseWidthChanged(double value)
+{
+    Settings& settings = Provider::GetSettingsInstance();
+    auto pw_cmd = settings.GetPwCommand() + "%1";
+    auto full_cmd = pw_cmd.arg(value);
+    m_socket.WriteData(full_cmd);
+    emit NotifyStatusUpdated(full_cmd);
 
 }

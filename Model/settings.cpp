@@ -10,6 +10,7 @@
 #include <QStandardPaths>
 #include <utility>
 
+static const int PW_CMD_INDEX = 5;
 static auto RESOURCE_PREFIX = QStringLiteral(":/json");
 
 Settings::Settings(QObject* parent, QString filename)
@@ -41,6 +42,8 @@ Settings::ParseJsonData()
     SetupCommands(json_obj);
 
 }
+
+
 
 
 QString
@@ -148,4 +151,14 @@ void Settings::SetupCommands(QJsonObject jsonObject)
         cmd_list.append(cmd.toString());
     }
     m_modelCommands.setStringList(cmd_list);
+
+    auto index = m_modelCommands.index(PW_CMD_INDEX);
+    auto test_cmd = m_modelCommands.data(index);
+
+    if (PW_CMD_INDEX < cmd_list.size()) {
+        m_pwCommand = cmd_list[PW_CMD_INDEX];
+    }
+    else {
+        emit NotifyStatusMessage("Error Getting Pulse Width Command");
+    }
 }

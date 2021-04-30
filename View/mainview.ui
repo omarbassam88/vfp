@@ -22,12 +22,17 @@
     <item>
      <widget class="QTabWidget" name="tabMainView">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tabControl">
        <attribute name="title">
         <string>Control</string>
        </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <layout class="QVBoxLayout" name="loControlTab"/>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tabSetup">
        <attribute name="title">

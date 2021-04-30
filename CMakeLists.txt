@@ -41,6 +41,9 @@ set(PROJECT_SOURCES
         View/setuptab.cpp
         View/setuptab.h
         View/setuptab.ui
+        View/controltab.h
+        View/controltab.cpp
+        View/controltab.ui
         Model/settings.h
         Model/settings.cpp
         Model/provider.h
@@ -51,6 +54,9 @@ set(PROJECT_SOURCES
         Model/instrument.cpp
         ViewMgr/setupviewmanager.h
         ViewMgr/setupviewmanager.cpp
+        ViewMgr/controlviewmanager.h
+        ViewMgr/controlviewmanager.cpp
+
         )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

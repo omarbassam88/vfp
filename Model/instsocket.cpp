@@ -34,7 +34,7 @@ void InstSocket::Disconnect()
 {
     if (!IsOpen()) return;
 
-    m_socket.disconnect();
+    m_socket.disconnectFromHost();
 }
 
 void InstSocket::SetHostName(const QString &value)
@@ -72,4 +72,5 @@ void InstSocket::onConnected(){
 
 void InstSocket::onDisconnected(){
     emit NotifyDisconnected();
+    qDebug() << "Socket Disconnected";
 }

@@ -27,6 +27,7 @@ public:
   int GetLongWaitMs() const { return m_longWaitMs;}
   int GetShortWaitMs() const { return m_shortWaitMs;}
   QStringListModel& GetCommands() const { return m_modelCommands; };
+  QString GetPwCommand() const { return m_pwCommand; };
 
 signals:
   void NotifyStatusMessage(QString message);
@@ -40,6 +41,7 @@ private:
   int m_longWaitMs;
   int m_shortWaitMs;
   QStringListModel& m_modelCommands;
+  QString m_pwCommand;
 
   QString ReadJsonFile();
   QString ReadJsonFromInternalResource();

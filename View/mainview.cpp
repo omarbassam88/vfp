@@ -1,15 +1,17 @@
 #include "mainview.h"
 #include "./ui_mainview.h"
 #include "setuptab.h"
+#include "controltab.h"
 
-MainView::MainView(QWidget* parent, SetupTab& setup)
+MainView::MainView(QWidget* parent, SetupTab& setupTab, ControlTab& controlTab)
   : QMainWindow(parent)
-  , m_setupTab(setup)
   , ui(new Ui::MainView)
 {
   ui->setupUi(this);
-  m_setupTab.setParent(this);
-  ui->loSetupTab->addWidget(&m_setupTab);
+  setupTab.setParent(this);
+  controlTab.setParent(this);
+  ui->loSetupTab->addWidget(&setupTab);
+  ui->loControlTab->addWidget(&controlTab);
 }
 
 MainView::~MainView()

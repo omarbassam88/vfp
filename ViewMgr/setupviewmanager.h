@@ -24,6 +24,7 @@ private:
     void WireSettings(Settings& config);
     void WireHostAndPort();
     void WireMessages();
+    void WireButtons();
 };
 
 #endif // SETUPVIEWMANAGER_H

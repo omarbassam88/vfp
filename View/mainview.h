@@ -10,17 +10,17 @@ class MainView;
 QT_END_NAMESPACE
 
 class SetupTab;
+class ControlTab;
 
 class MainView : public QMainWindow
 {
   Q_OBJECT
 
 public:
-  MainView(QWidget* parent, SetupTab& setup);
+  MainView(QWidget* parent, SetupTab& setupTab, ControlTab &controlTab);
   ~MainView();
 
 private:
   Ui::MainView* ui;
-  SetupTab& m_setupTab;
 };
 #endif // MAINVIEW_H

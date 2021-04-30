@@ -13,6 +13,7 @@ SetupViewManager::SetupViewManager(QObject *parent, SetupTab &tab, Instrument &i
     config.ParseJsonData();
     WireHostAndPort();
     WireMessages();
+    WireButtons();
 
     m_setupTab.SetHostName(config.GetHostName());
     m_setupTab.SetPort(config.GetPortNumber());
@@ -49,4 +50,13 @@ void SetupViewManager::WireMessages()
     connect(&m_instrument, &Instrument::NotifyErrorDetected, &m_setupTab, &SetupTab::onStatusUpdated);
     connect(&m_instrument, &Instrument::NotifyStatusUpdated, &m_setupTab, &SetupTab::onStatusUpdated);
     connect(this, &SetupViewManager::NotifyStatusUpdated, &m_setupTab, &SetupTab::onStatusUpdated);
+}
+
+void SetupViewManager::WireButtons()
+{
+    connect(&m_setupTab, &SetupTab::NotifyConnectClicked, &m_instrument, &Instrument::Connect);
+    connect(&m_instrument, &Instrument::NotifyConnected, &m_setupTab, &SetupTab::onConnected);
+
+    connect(&m_setupTab, &SetupTab::NotifyDiconnectClicked, &m_instrument, &Instrument::Disconnect);
+    connect(&m_instrument, &Instrument::NotifyDisconnected, &m_setupTab, &SetupTab::onDisconnected);
 }
