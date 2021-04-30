@@ -2,7 +2,7 @@
 
 A simple Qt application that can connect to an Instrument or a Server using TCP/IP connection and can send and receive messages from it.
 
-You can use [echo-server]() to test the connection.
+You can use [echo-server](https://github.com/omarbassam88/echo-server) to test the connection.
 
 This was originally done for educational purposes following the Plural Sight Tutorial by Tod Gentille.
 
