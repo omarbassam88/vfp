@@ -5,43 +5,42 @@
 
 class InstSocket;
 
-class Instrument : public QObject
-{
-    Q_OBJECT
+class Instrument : public QObject {
+  Q_OBJECT
 public:
-    explicit Instrument(QObject *parent, InstSocket& socket);
-    ~Instrument();
+  explicit Instrument(QObject *parent, InstSocket &socket);
+  ~Instrument();
 
-    void Connect();
-    void Disconnect();
-    bool isConnected() const;
-    QString GetHostName() const;
-    quint16 GetPort() const;
-    void SetLongWaitMs(int value);
-    void SetShortWaitMs(int value);
+  void Connect();
+  void Disconnect();
+  bool isConnected() const;
+  QString GetHostName() const;
+  quint16 GetPort() const;
+  void SetLongWaitMs(int value);
+  void SetShortWaitMs(int value);
 
 signals:
-    void NotifyConnected();
-    void NotifyDisconnected();
-    void NotifyDateSent(const QString& dataSent);
-    void NotiftDataReceived(const QString& readData);
-    void NotifyErrorDetected(const QString& errorMsg);
-    void NotifyStatusUpdated(const QString& statusMsg);
+  void NotifyConnected();
+  void NotifyDisconnected();
+  void NotifyDateSent(const QString &dataSent);
+  void NotiftDataReceived(const QString &readData);
+  void NotifyErrorDetected(const QString &errorMsg);
+  void NotifyStatusUpdated(const QString &statusMsg);
 
 public slots:
-    void onConnected();
-    void onDisconnected();
-    void onHostNameChanged(const QString& hostName);
-    void onPortChanged(quint16 port);
-    void onSendRequest(const QString& dataToSend);
-    void onReceiveRequest();
-    void onPulseWidthChanged(double value);
+  void onConnected();
+  void onDisconnected();
+  void onHostNameChanged(const QString &hostName);
+  void onPortChanged(quint16 port);
+  void onSendRequest(const QString &dataToSend);
+  void onReceiveRequest();
+  void onPulseWidthChanged(double value);
 
 private:
-    InstSocket& m_socket;
-    QString m_lastCommandSent;
+  InstSocket &m_socket;
+  QString m_lastCommandSent;
 
-    void WireConnections();
+  void WireConnections();
 };
 
 #endif // INSTRUMENT_H

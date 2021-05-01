@@ -12,18 +12,17 @@ QT_END_NAMESPACE
 class SetupTab;
 class ControlTab;
 
-class MainView : public QMainWindow
-{
+class MainView : public QMainWindow {
   Q_OBJECT
 
 public:
-  MainView(QWidget* parent, SetupTab& setupTab, ControlTab &controlTab);
+  MainView(QWidget *parent, SetupTab &setupTab, ControlTab &controlTab);
   ~MainView();
 
 private slots:
   void on_action_About_triggered();
 
 private:
-  Ui::MainView* ui;
+  Ui::MainView *ui;
 };
 #endif // MAINVIEW_H

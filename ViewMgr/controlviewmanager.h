@@ -6,26 +6,26 @@
 class ControlTab;
 class Instrument;
 
-class ControlViewManager : public QObject
-{
-    Q_OBJECT
+class ControlViewManager : public QObject {
+  Q_OBJECT
 public:
-    explicit ControlViewManager(QObject *parent, ControlTab& controlTab, Instrument& instrument);
-    ~ControlViewManager();
+  explicit ControlViewManager(QObject *parent, ControlTab &controlTab,
+                              Instrument &instrument);
+  ~ControlViewManager();
 
 signals:
-    void NotifyConnected();
+  void NotifyConnected();
 
 public slots:
-    void onConnected();
-    void onDisconnected();
+  void onConnected();
+  void onDisconnected();
 
 private:
-    ControlTab& m_controlTab;
-    Instrument& m_instrument;
+  ControlTab &m_controlTab;
+  Instrument &m_instrument;
 
-    void WireControls();
-    void WireConnected();
+  void WireControls();
+  void WireConnected();
 };
 
 #endif // CONTROLVIEWMANAGER_H

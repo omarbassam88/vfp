@@ -10,8 +10,7 @@ class SetupViewManager;
 class ControlTab;
 class ControlViewManager;
 
-class StartUp final : public QObject
-{
+class StartUp final : public QObject {
   Q_OBJECT
 public:
   explicit StartUp();
@@ -20,13 +19,12 @@ public:
 
 public slots:
 private:
-  SetupTab& m_setupTab;
-  ControlTab& m_controlTab;
-  MainView& m_mainView;
-  Instrument* m_instrument;
-  SetupViewManager* m_setupVm;
-  ControlViewManager* m_controlVm;
-
+  SetupTab &m_setupTab;
+  ControlTab &m_controlTab;
+  MainView &m_mainView;
+  Instrument *m_instrument;
+  SetupViewManager *m_setupVm;
+  ControlViewManager *m_controlVm;
 
 signals:
 };

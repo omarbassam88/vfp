@@ -7,22 +7,21 @@ namespace Ui {
 class ControlTab;
 }
 
-class ControlTab : public QWidget
-{
-    Q_OBJECT
+class ControlTab : public QWidget {
+  Q_OBJECT
 
 public:
-    explicit ControlTab(QWidget *parent = nullptr);
-    ~ControlTab();
+  explicit ControlTab(QWidget *parent = nullptr);
+  ~ControlTab();
 
 signals:
-    void NotifyPulseWidthChanged(double value);
+  void NotifyPulseWidthChanged(double value);
 
 private slots:
-    void on_spnWidth_valueChanged(double value);
+  void on_spnWidth_valueChanged(double value);
 
 private:
-    Ui::ControlTab *ui;
+  Ui::ControlTab *ui;
 };
 
 #endif // CONTROLTAB_H

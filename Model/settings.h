@@ -12,11 +12,10 @@ class QDir;
 
 typedef std::pair<QJsonObject, QJsonParseError> JsonObjErrorPair;
 
-class Settings : public QObject
-{
+class Settings : public QObject {
   Q_OBJECT
 public:
-  explicit Settings(QObject* parent, QString filename);
+  explicit Settings(QObject *parent, QString filename);
   void ParseJsonData();
 
   QString GetFilename() const { return m_filename; };
@@ -24,9 +23,9 @@ public:
   QString GetAppShortName() const { return m_appShortName; };
   QString GetHostName() const { return m_hostName; };
   quint16 GetPortNumber() const { return m_portNumber; };
-  int GetLongWaitMs() const { return m_longWaitMs;}
-  int GetShortWaitMs() const { return m_shortWaitMs;}
-  QStringListModel& GetCommands() const { return m_modelCommands; };
+  int GetLongWaitMs() const { return m_longWaitMs; }
+  int GetShortWaitMs() const { return m_shortWaitMs; }
+  QStringListModel &GetCommands() const { return m_modelCommands; };
   QString GetPwCommand() const { return m_pwCommand; };
 
 signals:
@@ -40,17 +39,18 @@ private:
   quint16 m_portNumber;
   int m_longWaitMs;
   int m_shortWaitMs;
-  QStringListModel& m_modelCommands;
+  QStringListModel &m_modelCommands;
   QString m_pwCommand;
 
   QString ReadJsonFile();
   QString ReadJsonFromInternalResource();
-  void SendErrorMessage(const QString& msg);
-  JsonObjErrorPair GetJsonObject(const QString& rawJson);
+  void SendErrorMessage(const QString &msg);
+  JsonObjErrorPair GetJsonObject(const QString &rawJson);
   void ShowJsonParseError(QJsonParseError jsonError);
   void SetupCommands(QJsonObject jsonObject);
   QDir OpenConfigDirectory();
-  void WriteDefaultsToStdConfigFile(QFile &stdConfigFile, const QString &settings);
+  void WriteDefaultsToStdConfigFile(QFile &stdConfigFile,
+                                    const QString &settings);
 };
 
 #endif // SETTINGS_H

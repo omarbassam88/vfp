@@ -4,14 +4,13 @@
 #include <memory>
 class Settings;
 
-class Provider  final
-{
+class Provider final {
 public:
-    Provider();
-    static Settings& GetSettingsInstance();
+  Provider();
+  static Settings &GetSettingsInstance();
 
 private:
-    static std::unique_ptr<Settings> m_settingsInstance;
+  static std::unique_ptr<Settings> m_settingsInstance;
 };
 
 #endif // PROVIDER_H
